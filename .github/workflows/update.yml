@@ -1,3 +1,5 @@
+run-name: Unit tests
+
 name: Unit tests
 
 on: [push, pull_request]

@@ -1,3 +1,5 @@
+run-name: Black linting
+
 name: Black linting
 
 on: [push, pull_request]
