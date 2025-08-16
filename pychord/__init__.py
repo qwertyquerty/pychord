@@ -8,8 +8,8 @@ __all__ = [
     # Classes
     "Tone",
     "Ratio",
-    "Note",
     "Interval",
+    "Note",
     # Constants
     "OCTAVE_RATIO",
     "SEMITONE_RATIO",
