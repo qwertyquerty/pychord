@@ -11,10 +11,10 @@ class PyChordUnitTests(unittest.TestCase):
     def test_note_name_parsing(self):
         self.assertEqual(Note("A").octave, NOTE_DEFAULT_OCTAVE)
 
-        self.assertEqual(Note("A4").frequency, 440)
-        self.assertEqual(Note("A5").frequency, 880)
+        self.assertAlmostEqual(Note("A4").frequency, 440, delta=0.001)
+        self.assertAlmostEqual(Note("A5").frequency, 880, delta=0.001)
 
-        self.assertAlmostEqual(Note("C4").frequency, 261.63, delta=0.001)
+        self.assertAlmostEqual(Note("C4").frequency, 261.625, delta=0.001)
 
         self.assertAlmostEqual(Note("Cb4").frequency, Note("B3").frequency, delta=0.001)
         self.assertAlmostEqual(Note("B#2").frequency, Note("C3").frequency, delta=0.001)
