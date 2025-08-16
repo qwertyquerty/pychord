@@ -3,9 +3,13 @@ from typing import Union
 
 from pychord.const import *
 
-
 class Ratio:
+    """
+    Describes an abstract interval between two `Tone`s, the ratio between their frequencies
+    """
+    
     ratio: Union[float, Fraction]
+    "Simple mathematical ratio between `Tone`s"
 
     def __init__(self, ratio: Union[float, Fraction]):
         self.ratio = ratio
@@ -17,21 +21,18 @@ class Ratio:
         return self.__repr__()
 
     def __neg__(self) -> "Ratio":
-        """
-        Inversion of ratio e.g. up an octave becomes down an octave
-        """
-        return Ratio(1.0 / self.ratio)
+        return self.inversion()
 
     def __add__(self, other: "Ratio"):
-        assert isinstance(other, Ratio)
+        if not isinstance(other, Ratio): return NotImplemented
         return Ratio(self.ratio * other.ratio)
 
     def __sub__(self, other: "Ratio"):
-        assert isinstance(other, Ratio)
+        if not isinstance(other, Ratio): return NotImplemented
         return Ratio(self.ratio / other.ratio)
 
     def __mul__(self, other: Union[int, float, Fraction]) -> "Ratio":
-        assert isinstance(other, (int, float, Fraction))
+        if not isinstance(other, (int, float, Fraction)): return NotImplemented
         return Ratio(self.ratio**other)
 
     def __eq__(self, other: "Ratio"):
@@ -41,27 +42,34 @@ class Ratio:
         return not isinstance(other, Ratio) or self.ratio != other.ratio
 
     def __ge__(self, other: "Ratio") -> bool:
-        assert isinstance(other, Ratio)
+        if not isinstance(other, (Ratio)): return NotImplemented
         return self.ratio >= other.ratio
 
     def __gt__(self, other: "Ratio") -> bool:
-        assert isinstance(other, Ratio)
+        if not isinstance(other, (Ratio)): return NotImplemented
         return self.ratio > other.ratio
 
     def __le__(self, other: "Ratio") -> bool:
-        assert isinstance(other, Ratio)
+        if not isinstance(other, (Ratio)): return NotImplemented
         return self.ratio <= other.ratio
 
     def __lt__(self, other: "Ratio") -> bool:
-        assert isinstance(other, Ratio)
+        if not isinstance(other, (Ratio)): return NotImplemented
         return self.ratio < other.ratio
 
     def compliment(self) -> "Ratio":
         """
-        Compliment of this ratio, when added to the original ratio will equal an octave
+        Compliment of this Ratio, when added to the original Ratio will equal an octave
         """
+
         return -(self - OCTAVE)
 
+    def inversion(self):
+        """
+        Inversion of ratio e.g. up a fifth becomes down a fifth
+        """
+
+        return Ratio(1.0 / self.ratio)
 
 SEMITONE = Ratio(2 ** (1 / 12))
 OCTAVE = Ratio(Fraction(2, 1))

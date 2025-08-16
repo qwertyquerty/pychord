@@ -6,6 +6,10 @@ from pychord.ratio import Ratio, SEMITONE, OCTAVE
 
 
 class Interval(Ratio):
+    """
+    Describes a musical interval as a ratio quantized to a 12TET semitone
+    """
+    
     semitones: int
     quality: str
     quantity: int
@@ -40,7 +44,7 @@ class Interval(Ratio):
 
             offset_name = f"{self.quality}{offset_quantity}"
 
-            assert offset_name in INTERVAL_NAME_TO_VALUE, f"Invalid 12TET interval name: '{offset_name}'!"
+            if offset_name not in INTERVAL_NAME_TO_VALUE: raise ValueError(f"Invalid 12TET interval name: '{offset_name}'!")
 
             self.semitones = octave * SEMITONES_PER_OCTAVE + INTERVAL_NAME_TO_VALUE[offset_name]
 
@@ -56,7 +60,7 @@ class Interval(Ratio):
         return self.__repr__()
 
     def __add__(self, other: Union["Interval", Ratio]) -> Union["Interval", Ratio]:
-        assert isinstance(other, (Interval, Ratio))
+        if not isinstance(other, (Interval, Ratio)): return NotImplemented
 
         if isinstance(other, Interval):
             return Interval(self.semitones + other.semitones)
@@ -64,7 +68,7 @@ class Interval(Ratio):
             return Ratio(self.ratio) + other
 
     def __sub__(self, other: Union["Interval", Ratio]) -> Union["Interval", Ratio]:
-        assert isinstance(other, (Interval, Ratio))
+        if not isinstance(other, (Interval, Ratio)): return NotImplemented
 
         if isinstance(other, Interval):
             return Interval(self.semitones - other.semitones)
@@ -72,7 +76,7 @@ class Interval(Ratio):
             return Ratio(self.ratio) - other
 
     def __mul__(self, other: Union[int, float, Fraction]) -> Union["Interval", Ratio]:
-        assert isinstance(other, (int, float, Fraction))
+        if not isinstance(other, (int, float, Fraction)): return NotImplemented
 
         if isinstance(other, int):
             return Interval(self.semitones * other)
@@ -92,4 +96,7 @@ class Interval(Ratio):
         return -(self - Interval(SEMITONES_PER_OCTAVE))
 
     def name(self) -> "str":
+        """
+        Return name of interval like P5 or m7 or -M3
+        """
         return f"{'-' if self.semitones < 0 else ''}{self.quality}{self.quantity}"

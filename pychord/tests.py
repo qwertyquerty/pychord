@@ -6,7 +6,6 @@ from pychord.note import *
 from pychord.ratio import *
 from pychord.tone import *
 
-
 class PyChordUnitTests(unittest.TestCase):
     def test_note_name_parsing(self):
         self.assertEqual(Note("A").octave, NOTE_DEFAULT_OCTAVE)
@@ -22,16 +21,16 @@ class PyChordUnitTests(unittest.TestCase):
 
         self.assertEqual(Note("C#1"), Note("Db1"))
 
-        with self.assertRaises(AssertionError):
+        with self.assertRaises(ValueError):
             Note("Hb3")
 
-        with self.assertRaises(AssertionError):
+        with self.assertRaises(ValueError):
             Note("A-3")
 
-        with self.assertRaises(AssertionError):
+        with self.assertRaises(ValueError):
             Note("Abbb3")
 
-        with self.assertRaises(AssertionError):
+        with self.assertRaises(ValueError):
             Note("G#b")
 
     def test_12tet_interval_name_parsing(self):

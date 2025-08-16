@@ -7,13 +7,17 @@ from pychord.tone import Tone
 
 
 class Note(Tone):
+    """
+    Describes a musical note as a Tone quantized to 12TET with A4 = 440Hz, where note 0 = C0
+    """
+    
     letter: str
     octave: int
     accidental: int
     semitone: int
 
     def __init__(self, note: Union[int, str]):
-        assert isinstance(note, (int, str))
+        if not isinstance(note, (int, str)): raise TypeError()
 
         if isinstance(note, int):
             self.semitone = note
@@ -25,7 +29,7 @@ class Note(Tone):
             name = note
             m = NOTE_NAME_RE.match(name)
 
-            assert m is not None, f"Invalid note name '{name}'!"
+            if m is None: raise ValueError(f"Invalid note name '{name}'!")
 
             self.letter = m.group(1)
             self.accidental = ACCIDENTAL_NAME_TO_VALUE[m.group(2)]
@@ -53,16 +57,22 @@ class Note(Tone):
         return self.__repr__()
 
     def __add__(self, other: Union[Interval, Ratio]):
+        if not isinstance(other, (Ratio, Interval)): return NotImplemented
         return self.transposed(other)
 
-    def __sub__(self, other: Union[Interval, Ratio]):
-        return self.transposed(-other)
+    def __sub__(self, other: Union[Interval, Ratio, "Note"]):
+        if isinstance(other, Ratio):
+            return self.transposed(-other)
+        elif isinstance(other, Note):
+            return Interval(self.semitone - other.semitone)
+        else:
+            return NotImplemented
 
     def name(self) -> str:
         return f"{self.letter}{ACCIDENTAL_VALUE_TO_NAME[self.accidental]}{self.octave}"
 
     def transposed(self, interval: Union[Ratio, Interval]) -> Union["Note", "Tone"]:
-        assert isinstance(interval, (Ratio, Interval))
+        if not isinstance(interval, (Ratio, Interval)): raise TypeError()
 
         if isinstance(interval, Interval):
             return Note(self.semitone + interval.semitones)
