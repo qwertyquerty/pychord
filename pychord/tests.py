@@ -6,6 +6,7 @@ from pychord.note import *
 from pychord.ratio import *
 from pychord.tone import *
 
+
 class PyChordUnitTests(unittest.TestCase):
     def test_note_name_parsing(self):
         self.assertEqual(Note("A").octave, NOTE_DEFAULT_OCTAVE)
