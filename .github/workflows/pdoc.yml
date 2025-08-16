@@ -1,3 +1,9 @@
+run-name: "Generate docs"
+
+name: "Generate docs"
+
+on: [push]
+
 jobs:
   build_docs:
     runs-on: ubuntu-latest
