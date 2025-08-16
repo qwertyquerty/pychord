@@ -12,11 +12,22 @@ class Note(Tone):
     """
 
     letter: str
+    "The alphabet letter of the note, A-G"
+
     octave: int
+    "The octave of the note, octaves start at C and end at B"
+
     accidental: int
+    "The accidental semitone value, 0 for natural, 1 for sharp, -1 for flat, 2 for double sharp, -2 for double flat"
+
     semitone: int
+    "The absolute semitone of the note starting at C0=0"
 
     def __init__(self, note: Union[int, str]):
+        """
+        `note` can either be a note name like "Ab4" "G2" "C#6" "F" or an integer number of semitones from C0
+        """
+
         if not isinstance(note, (int, str)):
             raise TypeError()
 
@@ -72,9 +83,17 @@ class Note(Tone):
             return NotImplemented
 
     def name(self) -> str:
+        """
+        Return name of note like Ab4 or G6
+        """
+
         return f"{self.letter}{ACCIDENTAL_VALUE_TO_NAME[self.accidental]}{self.octave}"
 
     def transposed(self, interval: Union[Ratio, Interval]) -> Union["Note", "Tone"]:
+        """
+        Transpose a note by an `Interval` or `Ratio`. Passing in an `Interval` will return a `Note` while passing in a `Ratio` will return a `Tone`
+        """
+
         if not isinstance(interval, (Ratio, Interval)):
             raise TypeError()
 

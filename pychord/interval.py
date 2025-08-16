@@ -2,7 +2,7 @@ from fractions import Fraction
 from typing import Union
 
 from pychord.const import *
-from pychord.ratio import Ratio, SEMITONE, OCTAVE
+from pychord.ratio import Ratio, OCTAVE
 
 
 class Interval(Ratio):
@@ -11,10 +11,19 @@ class Interval(Ratio):
     """
 
     semitones: int
+    "Integer number of 12TET semitones"
+
     quality: str
+    "Quality of `Interval`, 'M' for major, 'm' for minor, 'P' for perfect, 'A' for augmented, 'd' for diminished"
+
     quantity: int
+    "Quantity of `Interval` as an integer number of major scale steps, for example M10 quality is 10"
 
     def __init__(self, interval: Union[int, str]):
+        """
+        `interval` can be either an interval name like "M5" "m2" "d5" "A2" "P5" or an integer number of semitones
+        """
+
         assert isinstance(interval, (int, str))
 
         if isinstance(interval, int):
@@ -89,13 +98,13 @@ class Interval(Ratio):
 
     def __neg__(self) -> "Ratio":
         """
-        Inversion of interval e.g. up an octave becomes down an octave
+        Inversion of `Interval` e.g. up an octave becomes down an octave
         """
         return Interval(-self.semitones)
 
     def compliment(self) -> "Interval":
         """
-        Compliment of this interval, when added to the original interval will equal an octave
+        Compliment of `Interval`, when added to the original interval will equal an octave
         """
         return -(self - Interval(SEMITONES_PER_OCTAVE))
 
@@ -104,3 +113,7 @@ class Interval(Ratio):
         Return name of interval like P5 or m7 or -M3
         """
         return f"{'-' if self.semitones < 0 else ''}{self.quality}{self.quantity}"
+
+
+SEMITONE = Ratio(2 ** (1 / 12))
+"Constant ratio for a 12TET semitone"

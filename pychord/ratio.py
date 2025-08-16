@@ -67,18 +67,18 @@ class Ratio:
 
     def compliment(self) -> "Ratio":
         """
-        Compliment of this Ratio, when added to the original Ratio will equal an octave
+        Compliment of `Ratio`, when added to the original `Ratio` will equal an octave
         """
 
         return -(self - OCTAVE)
 
-    def inversion(self):
+    def inversion(self) -> "Ratio":
         """
-        Inversion of ratio e.g. up a fifth becomes down a fifth
+        Inversion of `Ratio` e.g. up a fifth becomes down a fifth
         """
 
         return Ratio(1.0 / self.ratio)
 
 
-SEMITONE = Ratio(2 ** (1 / 12))
 OCTAVE = Ratio(Fraction(2, 1))
+"Constant octave `Ratio` (2:1)"
