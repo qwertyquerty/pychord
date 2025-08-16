@@ -16,7 +16,7 @@ class Ratio:
         self.ratio = ratio
 
     def __repr__(self):
-        return f"[Ratio {self.ratio}]"
+        return f"[Ratio {self.ratio:.4f}]"
 
     def __str__(self):
         return self.__repr__()
@@ -70,7 +70,7 @@ class Ratio:
         Compliment of `Ratio`, when added to the original `Ratio` will equal an octave
         """
 
-        return -(self - OCTAVE)
+        return -(self - OCTAVE_RATIO)
 
     def inversion(self) -> "Ratio":
         """
@@ -80,5 +80,8 @@ class Ratio:
         return Ratio(1.0 / self.ratio)
 
 
-OCTAVE = Ratio(Fraction(2, 1))
+OCTAVE_RATIO = Ratio(Fraction(2, 1))
 "Constant octave `Ratio` (2:1)"
+
+SEMITONE_RATIO = Ratio(2 ** (1 / 12))
+"Constant ratio for a 12TET semitone"

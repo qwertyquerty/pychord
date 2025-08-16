@@ -1,8 +1,8 @@
 from typing import Union
 
 from pychord.const import *
-from pychord.interval import Interval
-from pychord.ratio import Ratio, SEMITONE, OCTAVE
+from pychord.interval import Interval, OCTAVE
+from pychord.ratio import Ratio
 from pychord.tone import Tone
 
 
@@ -53,18 +53,15 @@ class Note(Tone):
             self.semitone = c_based_note_semitone + self.accidental + SEMITONES_PER_OCTAVE * self.octave
 
         super().__init__(
-            round(
-                (
-                    Tone(C0_FREQUENCY)
-                    + Interval(self.semitone % SEMITONES_PER_OCTAVE)
-                    + (OCTAVE * (self.semitone // SEMITONES_PER_OCTAVE))
-                ).frequency,
-                NAMED_NOTE_FREQUENCY_PRECISION,
-            )
+            (
+                Tone(C0_FREQUENCY)
+                + Interval(self.semitone % SEMITONES_PER_OCTAVE)
+                + (OCTAVE * (self.semitone // SEMITONES_PER_OCTAVE))
+            ).frequency
         )
 
     def __repr__(self) -> str:
-        return f"[Note {self.name()} ({self.frequency})]"
+        return f"[Note {self.name()} ({self.frequency:.4f})]"
 
     def __str__(self) -> str:
         return self.__repr__()

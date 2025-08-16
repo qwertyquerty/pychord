@@ -15,7 +15,7 @@ class Tone:
         self.frequency = frequency
 
     def __repr__(self) -> str:
-        return f"[Tone ({self.frequency})]"
+        return f"[Tone ({self.frequency:.4f})]"
 
     def __str__(self) -> str:
         return self.__repr__()

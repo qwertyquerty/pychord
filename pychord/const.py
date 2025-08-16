@@ -70,8 +70,6 @@ NOTE_DEFAULT_OCTAVE: int = 4
 
 SEMITONES_PER_OCTAVE: int = 12
 
-NAMED_NOTE_FREQUENCY_PRECISION: int = 2  # decimal places
-
 NOTE_NAME_RE: re.Pattern = re.compile(r"^([CDEFGAB])(#{1,2}|b{1,2})?([0-9]+)?$")
 
 INTERVAL_NAME_RE: re.Pattern = re.compile(r"^([mMdAP])([0-9]+)$")

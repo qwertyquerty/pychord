@@ -2,7 +2,7 @@ from fractions import Fraction
 from typing import Union
 
 from pychord.const import *
-from pychord.ratio import Ratio, OCTAVE
+from pychord.ratio import Ratio, OCTAVE_RATIO, SEMITONE_RATIO
 
 
 class Interval(Ratio):
@@ -58,13 +58,13 @@ class Interval(Ratio):
 
             self.semitones = octave * SEMITONES_PER_OCTAVE + INTERVAL_NAME_TO_VALUE[offset_name]
 
-        interval = (SEMITONE * (abs(self.semitones) % SEMITONES_PER_OCTAVE)) + (
-            OCTAVE * (abs(self.semitones) // SEMITONES_PER_OCTAVE)
+        interval = (SEMITONE_RATIO * (abs(self.semitones) % SEMITONES_PER_OCTAVE)) + (
+            OCTAVE_RATIO * (abs(self.semitones) // SEMITONES_PER_OCTAVE)
         )
         super().__init__((interval if self.semitones >= 0 else -interval).ratio)
 
     def __repr__(self) -> str:
-        return f"[Interval {self.name()} ({self.ratio})]"
+        return f"[Interval {self.name()} ({self.ratio:.4f})]"
 
     def __str__(self) -> str:
         return self.__repr__()
@@ -115,5 +115,27 @@ class Interval(Ratio):
         return f"{'-' if self.semitones < 0 else ''}{self.quality}{self.quantity}"
 
 
-SEMITONE = Ratio(2 ** (1 / 12))
-"Constant ratio for a 12TET semitone"
+MINOR_SECOND = SEMITONE = Interval(1)
+
+MAJOR_SECOND = WHOLETONE = Interval(2)
+
+MINOR_THIRD = Interval(3)
+
+MAJOR_THIRD = Interval(4)
+
+PERFECT_FOURTH = Interval(5)
+
+AUGMENTED_FOURTH = Interval("A4")
+DIMINISHED_FIFTH = TRITONE = Interval("d5")
+
+PERFECT_FIFTH = Interval(7)
+
+MINOR_SIXTH = Interval(8)
+
+MAJOR_SIXTH = Interval(9)
+
+MINOR_SEVENTH = Interval(10)
+
+MAJOR_SEVENTH = Interval(11)
+
+OCTAVE = Interval(12)
