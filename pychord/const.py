@@ -74,5 +74,7 @@ NOTE_NAME_RE: re.Pattern = re.compile(r"^([CDEFGAB])(#{1,2}|b{1,2})?([0-9]+)?$")
 
 INTERVAL_NAME_RE: re.Pattern = re.compile(r"^([mMdAP])([0-9]+)$")
 
+CHORD_NAME_RE: re.Pattern = re.compile(r"^([CDEFGAB])(#{1,2}|b{1,2})?(maj|m|aug|dim)?([0-9]+)?((#{1,2}|b{1,2})([0-9]+))*(sus2|sus4)?((add|omit)([0-9]+))*(\/([CDEFGAB])(#{1,2}|b{1,2})?)?$")
+
 C0_FREQUENCY: int = 16.351597831287375  # A = 440
 "The frequency for C0 in A4=440Hz"

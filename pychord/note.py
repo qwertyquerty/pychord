@@ -8,7 +8,7 @@ from pychord.tone import Tone
 
 class Note(Tone):
     """
-    Describes a musical note as a Tone quantized to 12TET with A4 = 440Hz, where note 0 = C0
+    Describes a musical note as a `Tone` quantized to 12TET with A4 = 440Hz, where note 0 = C0
     """
 
     letter: str
