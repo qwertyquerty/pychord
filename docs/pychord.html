@@ -57,6 +57,30 @@
 
             </li>
             <li>
+                    <a class="class" href="#Interval">Interval</a>
+                            <ul class="memberlist">
+                        <li>
+                                <a class="function" href="#Interval.__init__">Interval</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Interval.semitones">semitones</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Interval.quality">quality</a>
+                        </li>
+                        <li>
+                                <a class="variable" href="#Interval.quantity">quantity</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Interval.compliment">compliment</a>
+                        </li>
+                        <li>
+                                <a class="function" href="#Interval.name">name</a>
+                        </li>
+                </ul>
+
+            </li>
+            <li>
                     <a class="class" href="#Note">Note</a>
                             <ul class="memberlist">
                         <li>
@@ -79,30 +103,6 @@
                         </li>
                         <li>
                                 <a class="function" href="#Note.transposed">transposed</a>
-                        </li>
-                </ul>
-
-            </li>
-            <li>
-                    <a class="class" href="#Interval">Interval</a>
-                            <ul class="memberlist">
-                        <li>
-                                <a class="function" href="#Interval.__init__">Interval</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#Interval.semitones">semitones</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#Interval.quality">quality</a>
-                        </li>
-                        <li>
-                                <a class="variable" href="#Interval.quantity">quantity</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#Interval.compliment">compliment</a>
-                        </li>
-                        <li>
-                                <a class="function" href="#Interval.name">name</a>
                         </li>
                 </ul>
 
@@ -195,8 +195,8 @@ pychord    </h1>
 </span><span id="L-8"><a href="#L-8"><span class="linenos"> 8</span></a>    <span class="c1"># Classes</span>
 </span><span id="L-9"><a href="#L-9"><span class="linenos"> 9</span></a>    <span class="s2">&quot;Tone&quot;</span><span class="p">,</span>
 </span><span id="L-10"><a href="#L-10"><span class="linenos">10</span></a>    <span class="s2">&quot;Ratio&quot;</span><span class="p">,</span>
-</span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a>    <span class="s2">&quot;Note&quot;</span><span class="p">,</span>
-</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a>    <span class="s2">&quot;Interval&quot;</span><span class="p">,</span>
+</span><span id="L-11"><a href="#L-11"><span class="linenos">11</span></a>    <span class="s2">&quot;Interval&quot;</span><span class="p">,</span>
+</span><span id="L-12"><a href="#L-12"><span class="linenos">12</span></a>    <span class="s2">&quot;Note&quot;</span><span class="p">,</span>
 </span><span id="L-13"><a href="#L-13"><span class="linenos">13</span></a>    <span class="c1"># Constants</span>
 </span><span id="L-14"><a href="#L-14"><span class="linenos">14</span></a>    <span class="s2">&quot;OCTAVE_RATIO&quot;</span><span class="p">,</span>
 </span><span id="L-15"><a href="#L-15"><span class="linenos">15</span></a>    <span class="s2">&quot;SEMITONE_RATIO&quot;</span><span class="p">,</span>
@@ -537,279 +537,6 @@ pychord    </h1>
 
                             </div>
                 </section>
-                <section id="Note">
-                            <input id="Note-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr class">
-            
-    <span class="def">class</span>
-    <span class="name">Note</span><wbr>(<span class="base"><a href="#Tone">pychord.Tone</a></span>):
-
-                <label class="view-source-button" for="Note-view-source"><span>View Source</span></label>
-
-    </div>
-    <a class="headerlink" href="#Note"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="Note-10"><a href="#Note-10"><span class="linenos"> 10</span></a><span class="k">class</span><span class="w"> </span><span class="nc">Note</span><span class="p">(</span><span class="n">Tone</span><span class="p">):</span>
-</span><span id="Note-11"><a href="#Note-11"><span class="linenos"> 11</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="Note-12"><a href="#Note-12"><span class="linenos"> 12</span></a><span class="sd">    Describes a musical note as a Tone quantized to 12TET with A4 = 440Hz, where note 0 = C0</span>
-</span><span id="Note-13"><a href="#Note-13"><span class="linenos"> 13</span></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="Note-14"><a href="#Note-14"><span class="linenos"> 14</span></a>
-</span><span id="Note-15"><a href="#Note-15"><span class="linenos"> 15</span></a>    <span class="n">letter</span><span class="p">:</span> <span class="nb">str</span>
-</span><span id="Note-16"><a href="#Note-16"><span class="linenos"> 16</span></a>    <span class="s2">&quot;The alphabet letter of the note, A-G&quot;</span>
-</span><span id="Note-17"><a href="#Note-17"><span class="linenos"> 17</span></a>
-</span><span id="Note-18"><a href="#Note-18"><span class="linenos"> 18</span></a>    <span class="n">octave</span><span class="p">:</span> <span class="nb">int</span>
-</span><span id="Note-19"><a href="#Note-19"><span class="linenos"> 19</span></a>    <span class="s2">&quot;The octave of the note, octaves start at C and end at B&quot;</span>
-</span><span id="Note-20"><a href="#Note-20"><span class="linenos"> 20</span></a>
-</span><span id="Note-21"><a href="#Note-21"><span class="linenos"> 21</span></a>    <span class="n">accidental</span><span class="p">:</span> <span class="nb">int</span>
-</span><span id="Note-22"><a href="#Note-22"><span class="linenos"> 22</span></a>    <span class="s2">&quot;The accidental semitone value, 0 for natural, 1 for sharp, -1 for flat, 2 for double sharp, -2 for double flat&quot;</span>
-</span><span id="Note-23"><a href="#Note-23"><span class="linenos"> 23</span></a>
-</span><span id="Note-24"><a href="#Note-24"><span class="linenos"> 24</span></a>    <span class="n">semitone</span><span class="p">:</span> <span class="nb">int</span>
-</span><span id="Note-25"><a href="#Note-25"><span class="linenos"> 25</span></a>    <span class="s2">&quot;The absolute semitone of the note starting at C0=0&quot;</span>
-</span><span id="Note-26"><a href="#Note-26"><span class="linenos"> 26</span></a>
-</span><span id="Note-27"><a href="#Note-27"><span class="linenos"> 27</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">note</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]):</span>
-</span><span id="Note-28"><a href="#Note-28"><span class="linenos"> 28</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="Note-29"><a href="#Note-29"><span class="linenos"> 29</span></a><span class="sd">        `note` can either be a note name like &quot;Ab4&quot; &quot;G2&quot; &quot;C#6&quot; &quot;F&quot; or an integer number of semitones from C0</span>
-</span><span id="Note-30"><a href="#Note-30"><span class="linenos"> 30</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="Note-31"><a href="#Note-31"><span class="linenos"> 31</span></a>
-</span><span id="Note-32"><a href="#Note-32"><span class="linenos"> 32</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">note</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">)):</span>
-</span><span id="Note-33"><a href="#Note-33"><span class="linenos"> 33</span></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">()</span>
-</span><span id="Note-34"><a href="#Note-34"><span class="linenos"> 34</span></a>
-</span><span id="Note-35"><a href="#Note-35"><span class="linenos"> 35</span></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">note</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
-</span><span id="Note-36"><a href="#Note-36"><span class="linenos"> 36</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">=</span> <span class="n">note</span>
-</span><span id="Note-37"><a href="#Note-37"><span class="linenos"> 37</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">octave</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">//</span> <span class="n">SEMITONES_PER_OCTAVE</span>
-</span><span id="Note-38"><a href="#Note-38"><span class="linenos"> 38</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">letter</span> <span class="o">=</span> <span class="n">NOTE_SEMITONE_TO_COMPONENTS</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">%</span> <span class="n">SEMITONES_PER_OCTAVE</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-</span><span id="Note-39"><a href="#Note-39"><span class="linenos"> 39</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">accidental</span> <span class="o">=</span> <span class="n">NOTE_SEMITONE_TO_COMPONENTS</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">%</span> <span class="n">SEMITONES_PER_OCTAVE</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
-</span><span id="Note-40"><a href="#Note-40"><span class="linenos"> 40</span></a>
-</span><span id="Note-41"><a href="#Note-41"><span class="linenos"> 41</span></a>        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">note</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-</span><span id="Note-42"><a href="#Note-42"><span class="linenos"> 42</span></a>            <span class="n">name</span> <span class="o">=</span> <span class="n">note</span>
-</span><span id="Note-43"><a href="#Note-43"><span class="linenos"> 43</span></a>            <span class="n">m</span> <span class="o">=</span> <span class="n">NOTE_NAME_RE</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-</span><span id="Note-44"><a href="#Note-44"><span class="linenos"> 44</span></a>
-</span><span id="Note-45"><a href="#Note-45"><span class="linenos"> 45</span></a>            <span class="k">if</span> <span class="n">m</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="Note-46"><a href="#Note-46"><span class="linenos"> 46</span></a>                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid note name &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;!&quot;</span><span class="p">)</span>
-</span><span id="Note-47"><a href="#Note-47"><span class="linenos"> 47</span></a>
-</span><span id="Note-48"><a href="#Note-48"><span class="linenos"> 48</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">letter</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</span><span id="Note-49"><a href="#Note-49"><span class="linenos"> 49</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">accidental</span> <span class="o">=</span> <span class="n">ACCIDENTAL_NAME_TO_VALUE</span><span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
-</span><span id="Note-50"><a href="#Note-50"><span class="linenos"> 50</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">octave</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="ow">or</span> <span class="n">NOTE_DEFAULT_OCTAVE</span><span class="p">)</span>
-</span><span id="Note-51"><a href="#Note-51"><span class="linenos"> 51</span></a>
-</span><span id="Note-52"><a href="#Note-52"><span class="linenos"> 52</span></a>            <span class="n">c_based_note_semitone</span> <span class="o">=</span> <span class="n">NOTE_NAME_TO_SEMITONE</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">letter</span><span class="p">]</span>
-</span><span id="Note-53"><a href="#Note-53"><span class="linenos"> 53</span></a>
-</span><span id="Note-54"><a href="#Note-54"><span class="linenos"> 54</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">=</span> <span class="n">c_based_note_semitone</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">accidental</span> <span class="o">+</span> <span class="n">SEMITONES_PER_OCTAVE</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">octave</span>
-</span><span id="Note-55"><a href="#Note-55"><span class="linenos"> 55</span></a>
-</span><span id="Note-56"><a href="#Note-56"><span class="linenos"> 56</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
-</span><span id="Note-57"><a href="#Note-57"><span class="linenos"> 57</span></a>            <span class="p">(</span>
-</span><span id="Note-58"><a href="#Note-58"><span class="linenos"> 58</span></a>                <span class="n">Tone</span><span class="p">(</span><span class="n">C0_FREQUENCY</span><span class="p">)</span>
-</span><span id="Note-59"><a href="#Note-59"><span class="linenos"> 59</span></a>                <span class="o">+</span> <span class="n">Interval</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">%</span> <span class="n">SEMITONES_PER_OCTAVE</span><span class="p">)</span>
-</span><span id="Note-60"><a href="#Note-60"><span class="linenos"> 60</span></a>                <span class="o">+</span> <span class="p">(</span><span class="n">OCTAVE</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">//</span> <span class="n">SEMITONES_PER_OCTAVE</span><span class="p">))</span>
-</span><span id="Note-61"><a href="#Note-61"><span class="linenos"> 61</span></a>            <span class="p">)</span><span class="o">.</span><span class="n">frequency</span>
-</span><span id="Note-62"><a href="#Note-62"><span class="linenos"> 62</span></a>        <span class="p">)</span>
-</span><span id="Note-63"><a href="#Note-63"><span class="linenos"> 63</span></a>
-</span><span id="Note-64"><a href="#Note-64"><span class="linenos"> 64</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-</span><span id="Note-65"><a href="#Note-65"><span class="linenos"> 65</span></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;[Note </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">()</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">frequency</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">)]&quot;</span>
-</span><span id="Note-66"><a href="#Note-66"><span class="linenos"> 66</span></a>
-</span><span id="Note-67"><a href="#Note-67"><span class="linenos"> 67</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-</span><span id="Note-68"><a href="#Note-68"><span class="linenos"> 68</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">()</span>
-</span><span id="Note-69"><a href="#Note-69"><span class="linenos"> 69</span></a>
-</span><span id="Note-70"><a href="#Note-70"><span class="linenos"> 70</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Interval</span><span class="p">,</span> <span class="n">Ratio</span><span class="p">]):</span>
-</span><span id="Note-71"><a href="#Note-71"><span class="linenos"> 71</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="p">(</span><span class="n">Ratio</span><span class="p">,</span> <span class="n">Interval</span><span class="p">)):</span>
-</span><span id="Note-72"><a href="#Note-72"><span class="linenos"> 72</span></a>            <span class="k">return</span> <span class="bp">NotImplemented</span>
-</span><span id="Note-73"><a href="#Note-73"><span class="linenos"> 73</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transposed</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
-</span><span id="Note-74"><a href="#Note-74"><span class="linenos"> 74</span></a>
-</span><span id="Note-75"><a href="#Note-75"><span class="linenos"> 75</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Interval</span><span class="p">,</span> <span class="n">Ratio</span><span class="p">,</span> <span class="s2">&quot;Note&quot;</span><span class="p">]):</span>
-</span><span id="Note-76"><a href="#Note-76"><span class="linenos"> 76</span></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Ratio</span><span class="p">):</span>
-</span><span id="Note-77"><a href="#Note-77"><span class="linenos"> 77</span></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transposed</span><span class="p">(</span><span class="o">-</span><span class="n">other</span><span class="p">)</span>
-</span><span id="Note-78"><a href="#Note-78"><span class="linenos"> 78</span></a>        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Note</span><span class="p">):</span>
-</span><span id="Note-79"><a href="#Note-79"><span class="linenos"> 79</span></a>            <span class="k">return</span> <span class="n">Interval</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">-</span> <span class="n">other</span><span class="o">.</span><span class="n">semitone</span><span class="p">)</span>
-</span><span id="Note-80"><a href="#Note-80"><span class="linenos"> 80</span></a>        <span class="k">else</span><span class="p">:</span>
-</span><span id="Note-81"><a href="#Note-81"><span class="linenos"> 81</span></a>            <span class="k">return</span> <span class="bp">NotImplemented</span>
-</span><span id="Note-82"><a href="#Note-82"><span class="linenos"> 82</span></a>
-</span><span id="Note-83"><a href="#Note-83"><span class="linenos"> 83</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-</span><span id="Note-84"><a href="#Note-84"><span class="linenos"> 84</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="Note-85"><a href="#Note-85"><span class="linenos"> 85</span></a><span class="sd">        Return name of note like Ab4 or G6</span>
-</span><span id="Note-86"><a href="#Note-86"><span class="linenos"> 86</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="Note-87"><a href="#Note-87"><span class="linenos"> 87</span></a>
-</span><span id="Note-88"><a href="#Note-88"><span class="linenos"> 88</span></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">letter</span><span class="si">}{</span><span class="n">ACCIDENTAL_VALUE_TO_NAME</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">accidental</span><span class="p">]</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">octave</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span id="Note-89"><a href="#Note-89"><span class="linenos"> 89</span></a>
-</span><span id="Note-90"><a href="#Note-90"><span class="linenos"> 90</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">transposed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">interval</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Ratio</span><span class="p">,</span> <span class="n">Interval</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="s2">&quot;Note&quot;</span><span class="p">,</span> <span class="s2">&quot;Tone&quot;</span><span class="p">]:</span>
-</span><span id="Note-91"><a href="#Note-91"><span class="linenos"> 91</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="Note-92"><a href="#Note-92"><span class="linenos"> 92</span></a><span class="sd">        Transpose a note by an `Interval` or `Ratio`. Passing in an `Interval` will return a `Note` while passing in a `Ratio` will return a `Tone`</span>
-</span><span id="Note-93"><a href="#Note-93"><span class="linenos"> 93</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="Note-94"><a href="#Note-94"><span class="linenos"> 94</span></a>
-</span><span id="Note-95"><a href="#Note-95"><span class="linenos"> 95</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">interval</span><span class="p">,</span> <span class="p">(</span><span class="n">Ratio</span><span class="p">,</span> <span class="n">Interval</span><span class="p">)):</span>
-</span><span id="Note-96"><a href="#Note-96"><span class="linenos"> 96</span></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">()</span>
-</span><span id="Note-97"><a href="#Note-97"><span class="linenos"> 97</span></a>
-</span><span id="Note-98"><a href="#Note-98"><span class="linenos"> 98</span></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">interval</span><span class="p">,</span> <span class="n">Interval</span><span class="p">):</span>
-</span><span id="Note-99"><a href="#Note-99"><span class="linenos"> 99</span></a>            <span class="k">return</span> <span class="n">Note</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">+</span> <span class="n">interval</span><span class="o">.</span><span class="n">semitones</span><span class="p">)</span>
-</span><span id="Note-100"><a href="#Note-100"><span class="linenos">100</span></a>        <span class="k">else</span><span class="p">:</span>
-</span><span id="Note-101"><a href="#Note-101"><span class="linenos">101</span></a>            <span class="k">return</span> <span class="n">Tone</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frequency</span><span class="p">)</span> <span class="o">+</span> <span class="n">interval</span>
-</span></pre></div>
-
-
-            <div class="docstring"><p>Describes a musical note as a Tone quantized to 12TET with A4 = 440Hz, where note 0 = C0</p>
-</div>
-
-
-                            <div id="Note.__init__" class="classattr">
-                                        <input id="Note.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr function">
-            
-        <span class="name">Note</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">note</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span></span>)</span>
-
-                <label class="view-source-button" for="Note.__init__-view-source"><span>View Source</span></label>
-
-    </div>
-    <a class="headerlink" href="#Note.__init__"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="Note.__init__-27"><a href="#Note.__init__-27"><span class="linenos">27</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">note</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]):</span>
-</span><span id="Note.__init__-28"><a href="#Note.__init__-28"><span class="linenos">28</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="Note.__init__-29"><a href="#Note.__init__-29"><span class="linenos">29</span></a><span class="sd">        `note` can either be a note name like &quot;Ab4&quot; &quot;G2&quot; &quot;C#6&quot; &quot;F&quot; or an integer number of semitones from C0</span>
-</span><span id="Note.__init__-30"><a href="#Note.__init__-30"><span class="linenos">30</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="Note.__init__-31"><a href="#Note.__init__-31"><span class="linenos">31</span></a>
-</span><span id="Note.__init__-32"><a href="#Note.__init__-32"><span class="linenos">32</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">note</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">)):</span>
-</span><span id="Note.__init__-33"><a href="#Note.__init__-33"><span class="linenos">33</span></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">()</span>
-</span><span id="Note.__init__-34"><a href="#Note.__init__-34"><span class="linenos">34</span></a>
-</span><span id="Note.__init__-35"><a href="#Note.__init__-35"><span class="linenos">35</span></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">note</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
-</span><span id="Note.__init__-36"><a href="#Note.__init__-36"><span class="linenos">36</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">=</span> <span class="n">note</span>
-</span><span id="Note.__init__-37"><a href="#Note.__init__-37"><span class="linenos">37</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">octave</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">//</span> <span class="n">SEMITONES_PER_OCTAVE</span>
-</span><span id="Note.__init__-38"><a href="#Note.__init__-38"><span class="linenos">38</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">letter</span> <span class="o">=</span> <span class="n">NOTE_SEMITONE_TO_COMPONENTS</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">%</span> <span class="n">SEMITONES_PER_OCTAVE</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-</span><span id="Note.__init__-39"><a href="#Note.__init__-39"><span class="linenos">39</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">accidental</span> <span class="o">=</span> <span class="n">NOTE_SEMITONE_TO_COMPONENTS</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">%</span> <span class="n">SEMITONES_PER_OCTAVE</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
-</span><span id="Note.__init__-40"><a href="#Note.__init__-40"><span class="linenos">40</span></a>
-</span><span id="Note.__init__-41"><a href="#Note.__init__-41"><span class="linenos">41</span></a>        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">note</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-</span><span id="Note.__init__-42"><a href="#Note.__init__-42"><span class="linenos">42</span></a>            <span class="n">name</span> <span class="o">=</span> <span class="n">note</span>
-</span><span id="Note.__init__-43"><a href="#Note.__init__-43"><span class="linenos">43</span></a>            <span class="n">m</span> <span class="o">=</span> <span class="n">NOTE_NAME_RE</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-</span><span id="Note.__init__-44"><a href="#Note.__init__-44"><span class="linenos">44</span></a>
-</span><span id="Note.__init__-45"><a href="#Note.__init__-45"><span class="linenos">45</span></a>            <span class="k">if</span> <span class="n">m</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-</span><span id="Note.__init__-46"><a href="#Note.__init__-46"><span class="linenos">46</span></a>                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid note name &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;!&quot;</span><span class="p">)</span>
-</span><span id="Note.__init__-47"><a href="#Note.__init__-47"><span class="linenos">47</span></a>
-</span><span id="Note.__init__-48"><a href="#Note.__init__-48"><span class="linenos">48</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">letter</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</span><span id="Note.__init__-49"><a href="#Note.__init__-49"><span class="linenos">49</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">accidental</span> <span class="o">=</span> <span class="n">ACCIDENTAL_NAME_TO_VALUE</span><span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
-</span><span id="Note.__init__-50"><a href="#Note.__init__-50"><span class="linenos">50</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">octave</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="ow">or</span> <span class="n">NOTE_DEFAULT_OCTAVE</span><span class="p">)</span>
-</span><span id="Note.__init__-51"><a href="#Note.__init__-51"><span class="linenos">51</span></a>
-</span><span id="Note.__init__-52"><a href="#Note.__init__-52"><span class="linenos">52</span></a>            <span class="n">c_based_note_semitone</span> <span class="o">=</span> <span class="n">NOTE_NAME_TO_SEMITONE</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">letter</span><span class="p">]</span>
-</span><span id="Note.__init__-53"><a href="#Note.__init__-53"><span class="linenos">53</span></a>
-</span><span id="Note.__init__-54"><a href="#Note.__init__-54"><span class="linenos">54</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">=</span> <span class="n">c_based_note_semitone</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">accidental</span> <span class="o">+</span> <span class="n">SEMITONES_PER_OCTAVE</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">octave</span>
-</span><span id="Note.__init__-55"><a href="#Note.__init__-55"><span class="linenos">55</span></a>
-</span><span id="Note.__init__-56"><a href="#Note.__init__-56"><span class="linenos">56</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
-</span><span id="Note.__init__-57"><a href="#Note.__init__-57"><span class="linenos">57</span></a>            <span class="p">(</span>
-</span><span id="Note.__init__-58"><a href="#Note.__init__-58"><span class="linenos">58</span></a>                <span class="n">Tone</span><span class="p">(</span><span class="n">C0_FREQUENCY</span><span class="p">)</span>
-</span><span id="Note.__init__-59"><a href="#Note.__init__-59"><span class="linenos">59</span></a>                <span class="o">+</span> <span class="n">Interval</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">%</span> <span class="n">SEMITONES_PER_OCTAVE</span><span class="p">)</span>
-</span><span id="Note.__init__-60"><a href="#Note.__init__-60"><span class="linenos">60</span></a>                <span class="o">+</span> <span class="p">(</span><span class="n">OCTAVE</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">//</span> <span class="n">SEMITONES_PER_OCTAVE</span><span class="p">))</span>
-</span><span id="Note.__init__-61"><a href="#Note.__init__-61"><span class="linenos">61</span></a>            <span class="p">)</span><span class="o">.</span><span class="n">frequency</span>
-</span><span id="Note.__init__-62"><a href="#Note.__init__-62"><span class="linenos">62</span></a>        <span class="p">)</span>
-</span></pre></div>
-
-
-            <div class="docstring"><p><code>note</code> can either be a note name like "Ab4" "G2" "C#6" "F" or an integer number of semitones from C0</p>
-</div>
-
-
-                            </div>
-                            <div id="Note.letter" class="classattr">
-                                <div class="attr variable">
-            <span class="name">letter</span><span class="annotation">: str</span>
-
-        
-    </div>
-    <a class="headerlink" href="#Note.letter"></a>
-    
-            <div class="docstring"><p>The alphabet letter of the note, A-G</p>
-</div>
-
-
-                            </div>
-                            <div id="Note.octave" class="classattr">
-                                <div class="attr variable">
-            <span class="name">octave</span><span class="annotation">: int</span>
-
-        
-    </div>
-    <a class="headerlink" href="#Note.octave"></a>
-    
-            <div class="docstring"><p>The octave of the note, octaves start at C and end at B</p>
-</div>
-
-
-                            </div>
-                            <div id="Note.accidental" class="classattr">
-                                <div class="attr variable">
-            <span class="name">accidental</span><span class="annotation">: int</span>
-
-        
-    </div>
-    <a class="headerlink" href="#Note.accidental"></a>
-    
-            <div class="docstring"><p>The accidental semitone value, 0 for natural, 1 for sharp, -1 for flat, 2 for double sharp, -2 for double flat</p>
-</div>
-
-
-                            </div>
-                            <div id="Note.semitone" class="classattr">
-                                <div class="attr variable">
-            <span class="name">semitone</span><span class="annotation">: int</span>
-
-        
-    </div>
-    <a class="headerlink" href="#Note.semitone"></a>
-    
-            <div class="docstring"><p>The absolute semitone of the note starting at C0=0</p>
-</div>
-
-
-                            </div>
-                            <div id="Note.name" class="classattr">
-                                        <input id="Note.name-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr function">
-            
-        <span class="def">def</span>
-        <span class="name">name</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
-
-                <label class="view-source-button" for="Note.name-view-source"><span>View Source</span></label>
-
-    </div>
-    <a class="headerlink" href="#Note.name"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="Note.name-83"><a href="#Note.name-83"><span class="linenos">83</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-</span><span id="Note.name-84"><a href="#Note.name-84"><span class="linenos">84</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="Note.name-85"><a href="#Note.name-85"><span class="linenos">85</span></a><span class="sd">        Return name of note like Ab4 or G6</span>
-</span><span id="Note.name-86"><a href="#Note.name-86"><span class="linenos">86</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="Note.name-87"><a href="#Note.name-87"><span class="linenos">87</span></a>
-</span><span id="Note.name-88"><a href="#Note.name-88"><span class="linenos">88</span></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">letter</span><span class="si">}{</span><span class="n">ACCIDENTAL_VALUE_TO_NAME</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">accidental</span><span class="p">]</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">octave</span><span class="si">}</span><span class="s2">&quot;</span>
-</span></pre></div>
-
-
-            <div class="docstring"><p>Return name of note like Ab4 or G6</p>
-</div>
-
-
-                            </div>
-                            <div id="Note.transposed" class="classattr">
-                                        <input id="Note.transposed-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
-<div class="attr function">
-            
-        <span class="def">def</span>
-        <span class="name">transposed</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">interval</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n"><a href="#Ratio">Ratio</a></span><span class="p">,</span> <span class="n"><a href="#Interval">Interval</a></span><span class="p">]</span></span><span class="return-annotation">) -> <span class="n">Union</span><span class="p">[</span><span class="n"><a href="#Note">Note</a></span><span class="p">,</span> <span class="n"><a href="#Tone">Tone</a></span><span class="p">]</span>:</span></span>
-
-                <label class="view-source-button" for="Note.transposed-view-source"><span>View Source</span></label>
-
-    </div>
-    <a class="headerlink" href="#Note.transposed"></a>
-            <div class="pdoc-code codehilite"><pre><span></span><span id="Note.transposed-90"><a href="#Note.transposed-90"><span class="linenos"> 90</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">transposed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">interval</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Ratio</span><span class="p">,</span> <span class="n">Interval</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="s2">&quot;Note&quot;</span><span class="p">,</span> <span class="s2">&quot;Tone&quot;</span><span class="p">]:</span>
-</span><span id="Note.transposed-91"><a href="#Note.transposed-91"><span class="linenos"> 91</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-</span><span id="Note.transposed-92"><a href="#Note.transposed-92"><span class="linenos"> 92</span></a><span class="sd">        Transpose a note by an `Interval` or `Ratio`. Passing in an `Interval` will return a `Note` while passing in a `Ratio` will return a `Tone`</span>
-</span><span id="Note.transposed-93"><a href="#Note.transposed-93"><span class="linenos"> 93</span></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="Note.transposed-94"><a href="#Note.transposed-94"><span class="linenos"> 94</span></a>
-</span><span id="Note.transposed-95"><a href="#Note.transposed-95"><span class="linenos"> 95</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">interval</span><span class="p">,</span> <span class="p">(</span><span class="n">Ratio</span><span class="p">,</span> <span class="n">Interval</span><span class="p">)):</span>
-</span><span id="Note.transposed-96"><a href="#Note.transposed-96"><span class="linenos"> 96</span></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">()</span>
-</span><span id="Note.transposed-97"><a href="#Note.transposed-97"><span class="linenos"> 97</span></a>
-</span><span id="Note.transposed-98"><a href="#Note.transposed-98"><span class="linenos"> 98</span></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">interval</span><span class="p">,</span> <span class="n">Interval</span><span class="p">):</span>
-</span><span id="Note.transposed-99"><a href="#Note.transposed-99"><span class="linenos"> 99</span></a>            <span class="k">return</span> <span class="n">Note</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">+</span> <span class="n">interval</span><span class="o">.</span><span class="n">semitones</span><span class="p">)</span>
-</span><span id="Note.transposed-100"><a href="#Note.transposed-100"><span class="linenos">100</span></a>        <span class="k">else</span><span class="p">:</span>
-</span><span id="Note.transposed-101"><a href="#Note.transposed-101"><span class="linenos">101</span></a>            <span class="k">return</span> <span class="n">Tone</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frequency</span><span class="p">)</span> <span class="o">+</span> <span class="n">interval</span>
-</span></pre></div>
-
-
-            <div class="docstring"><p>Transpose a note by an <code><a href="#Interval">Interval</a></code> or <code><a href="#Ratio">Ratio</a></code>. Passing in an <code><a href="#Interval">Interval</a></code> will return a <code><a href="#Note">Note</a></code> while passing in a <code><a href="#Ratio">Ratio</a></code> will return a <code><a href="#Tone">Tone</a></code></p>
-</div>
-
-
-                            </div>
-                </section>
                 <section id="Interval">
                             <input id="Interval-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
 <div class="attr class">
@@ -1080,6 +807,279 @@ pychord    </h1>
 
 
             <div class="docstring"><p>Return name of interval like P5 or m7 or -M3</p>
+</div>
+
+
+                            </div>
+                </section>
+                <section id="Note">
+                            <input id="Note-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr class">
+            
+    <span class="def">class</span>
+    <span class="name">Note</span><wbr>(<span class="base"><a href="#Tone">pychord.Tone</a></span>):
+
+                <label class="view-source-button" for="Note-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#Note"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Note-10"><a href="#Note-10"><span class="linenos"> 10</span></a><span class="k">class</span><span class="w"> </span><span class="nc">Note</span><span class="p">(</span><span class="n">Tone</span><span class="p">):</span>
+</span><span id="Note-11"><a href="#Note-11"><span class="linenos"> 11</span></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="Note-12"><a href="#Note-12"><span class="linenos"> 12</span></a><span class="sd">    Describes a musical note as a Tone quantized to 12TET with A4 = 440Hz, where note 0 = C0</span>
+</span><span id="Note-13"><a href="#Note-13"><span class="linenos"> 13</span></a><span class="sd">    &quot;&quot;&quot;</span>
+</span><span id="Note-14"><a href="#Note-14"><span class="linenos"> 14</span></a>
+</span><span id="Note-15"><a href="#Note-15"><span class="linenos"> 15</span></a>    <span class="n">letter</span><span class="p">:</span> <span class="nb">str</span>
+</span><span id="Note-16"><a href="#Note-16"><span class="linenos"> 16</span></a>    <span class="s2">&quot;The alphabet letter of the note, A-G&quot;</span>
+</span><span id="Note-17"><a href="#Note-17"><span class="linenos"> 17</span></a>
+</span><span id="Note-18"><a href="#Note-18"><span class="linenos"> 18</span></a>    <span class="n">octave</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="Note-19"><a href="#Note-19"><span class="linenos"> 19</span></a>    <span class="s2">&quot;The octave of the note, octaves start at C and end at B&quot;</span>
+</span><span id="Note-20"><a href="#Note-20"><span class="linenos"> 20</span></a>
+</span><span id="Note-21"><a href="#Note-21"><span class="linenos"> 21</span></a>    <span class="n">accidental</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="Note-22"><a href="#Note-22"><span class="linenos"> 22</span></a>    <span class="s2">&quot;The accidental semitone value, 0 for natural, 1 for sharp, -1 for flat, 2 for double sharp, -2 for double flat&quot;</span>
+</span><span id="Note-23"><a href="#Note-23"><span class="linenos"> 23</span></a>
+</span><span id="Note-24"><a href="#Note-24"><span class="linenos"> 24</span></a>    <span class="n">semitone</span><span class="p">:</span> <span class="nb">int</span>
+</span><span id="Note-25"><a href="#Note-25"><span class="linenos"> 25</span></a>    <span class="s2">&quot;The absolute semitone of the note starting at C0=0&quot;</span>
+</span><span id="Note-26"><a href="#Note-26"><span class="linenos"> 26</span></a>
+</span><span id="Note-27"><a href="#Note-27"><span class="linenos"> 27</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">note</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]):</span>
+</span><span id="Note-28"><a href="#Note-28"><span class="linenos"> 28</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="Note-29"><a href="#Note-29"><span class="linenos"> 29</span></a><span class="sd">        `note` can either be a note name like &quot;Ab4&quot; &quot;G2&quot; &quot;C#6&quot; &quot;F&quot; or an integer number of semitones from C0</span>
+</span><span id="Note-30"><a href="#Note-30"><span class="linenos"> 30</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="Note-31"><a href="#Note-31"><span class="linenos"> 31</span></a>
+</span><span id="Note-32"><a href="#Note-32"><span class="linenos"> 32</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">note</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">)):</span>
+</span><span id="Note-33"><a href="#Note-33"><span class="linenos"> 33</span></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">()</span>
+</span><span id="Note-34"><a href="#Note-34"><span class="linenos"> 34</span></a>
+</span><span id="Note-35"><a href="#Note-35"><span class="linenos"> 35</span></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">note</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+</span><span id="Note-36"><a href="#Note-36"><span class="linenos"> 36</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">=</span> <span class="n">note</span>
+</span><span id="Note-37"><a href="#Note-37"><span class="linenos"> 37</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">octave</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">//</span> <span class="n">SEMITONES_PER_OCTAVE</span>
+</span><span id="Note-38"><a href="#Note-38"><span class="linenos"> 38</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">letter</span> <span class="o">=</span> <span class="n">NOTE_SEMITONE_TO_COMPONENTS</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">%</span> <span class="n">SEMITONES_PER_OCTAVE</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="Note-39"><a href="#Note-39"><span class="linenos"> 39</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">accidental</span> <span class="o">=</span> <span class="n">NOTE_SEMITONE_TO_COMPONENTS</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">%</span> <span class="n">SEMITONES_PER_OCTAVE</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+</span><span id="Note-40"><a href="#Note-40"><span class="linenos"> 40</span></a>
+</span><span id="Note-41"><a href="#Note-41"><span class="linenos"> 41</span></a>        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">note</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="Note-42"><a href="#Note-42"><span class="linenos"> 42</span></a>            <span class="n">name</span> <span class="o">=</span> <span class="n">note</span>
+</span><span id="Note-43"><a href="#Note-43"><span class="linenos"> 43</span></a>            <span class="n">m</span> <span class="o">=</span> <span class="n">NOTE_NAME_RE</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</span><span id="Note-44"><a href="#Note-44"><span class="linenos"> 44</span></a>
+</span><span id="Note-45"><a href="#Note-45"><span class="linenos"> 45</span></a>            <span class="k">if</span> <span class="n">m</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="Note-46"><a href="#Note-46"><span class="linenos"> 46</span></a>                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid note name &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;!&quot;</span><span class="p">)</span>
+</span><span id="Note-47"><a href="#Note-47"><span class="linenos"> 47</span></a>
+</span><span id="Note-48"><a href="#Note-48"><span class="linenos"> 48</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">letter</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="Note-49"><a href="#Note-49"><span class="linenos"> 49</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">accidental</span> <span class="o">=</span> <span class="n">ACCIDENTAL_NAME_TO_VALUE</span><span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
+</span><span id="Note-50"><a href="#Note-50"><span class="linenos"> 50</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">octave</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="ow">or</span> <span class="n">NOTE_DEFAULT_OCTAVE</span><span class="p">)</span>
+</span><span id="Note-51"><a href="#Note-51"><span class="linenos"> 51</span></a>
+</span><span id="Note-52"><a href="#Note-52"><span class="linenos"> 52</span></a>            <span class="n">c_based_note_semitone</span> <span class="o">=</span> <span class="n">NOTE_NAME_TO_SEMITONE</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">letter</span><span class="p">]</span>
+</span><span id="Note-53"><a href="#Note-53"><span class="linenos"> 53</span></a>
+</span><span id="Note-54"><a href="#Note-54"><span class="linenos"> 54</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">=</span> <span class="n">c_based_note_semitone</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">accidental</span> <span class="o">+</span> <span class="n">SEMITONES_PER_OCTAVE</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">octave</span>
+</span><span id="Note-55"><a href="#Note-55"><span class="linenos"> 55</span></a>
+</span><span id="Note-56"><a href="#Note-56"><span class="linenos"> 56</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+</span><span id="Note-57"><a href="#Note-57"><span class="linenos"> 57</span></a>            <span class="p">(</span>
+</span><span id="Note-58"><a href="#Note-58"><span class="linenos"> 58</span></a>                <span class="n">Tone</span><span class="p">(</span><span class="n">C0_FREQUENCY</span><span class="p">)</span>
+</span><span id="Note-59"><a href="#Note-59"><span class="linenos"> 59</span></a>                <span class="o">+</span> <span class="n">Interval</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">%</span> <span class="n">SEMITONES_PER_OCTAVE</span><span class="p">)</span>
+</span><span id="Note-60"><a href="#Note-60"><span class="linenos"> 60</span></a>                <span class="o">+</span> <span class="p">(</span><span class="n">OCTAVE</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">//</span> <span class="n">SEMITONES_PER_OCTAVE</span><span class="p">))</span>
+</span><span id="Note-61"><a href="#Note-61"><span class="linenos"> 61</span></a>            <span class="p">)</span><span class="o">.</span><span class="n">frequency</span>
+</span><span id="Note-62"><a href="#Note-62"><span class="linenos"> 62</span></a>        <span class="p">)</span>
+</span><span id="Note-63"><a href="#Note-63"><span class="linenos"> 63</span></a>
+</span><span id="Note-64"><a href="#Note-64"><span class="linenos"> 64</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="Note-65"><a href="#Note-65"><span class="linenos"> 65</span></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;[Note </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">()</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">frequency</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">)]&quot;</span>
+</span><span id="Note-66"><a href="#Note-66"><span class="linenos"> 66</span></a>
+</span><span id="Note-67"><a href="#Note-67"><span class="linenos"> 67</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="Note-68"><a href="#Note-68"><span class="linenos"> 68</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__repr__</span><span class="p">()</span>
+</span><span id="Note-69"><a href="#Note-69"><span class="linenos"> 69</span></a>
+</span><span id="Note-70"><a href="#Note-70"><span class="linenos"> 70</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Interval</span><span class="p">,</span> <span class="n">Ratio</span><span class="p">]):</span>
+</span><span id="Note-71"><a href="#Note-71"><span class="linenos"> 71</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="p">(</span><span class="n">Ratio</span><span class="p">,</span> <span class="n">Interval</span><span class="p">)):</span>
+</span><span id="Note-72"><a href="#Note-72"><span class="linenos"> 72</span></a>            <span class="k">return</span> <span class="bp">NotImplemented</span>
+</span><span id="Note-73"><a href="#Note-73"><span class="linenos"> 73</span></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transposed</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+</span><span id="Note-74"><a href="#Note-74"><span class="linenos"> 74</span></a>
+</span><span id="Note-75"><a href="#Note-75"><span class="linenos"> 75</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Interval</span><span class="p">,</span> <span class="n">Ratio</span><span class="p">,</span> <span class="s2">&quot;Note&quot;</span><span class="p">]):</span>
+</span><span id="Note-76"><a href="#Note-76"><span class="linenos"> 76</span></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Ratio</span><span class="p">):</span>
+</span><span id="Note-77"><a href="#Note-77"><span class="linenos"> 77</span></a>            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transposed</span><span class="p">(</span><span class="o">-</span><span class="n">other</span><span class="p">)</span>
+</span><span id="Note-78"><a href="#Note-78"><span class="linenos"> 78</span></a>        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Note</span><span class="p">):</span>
+</span><span id="Note-79"><a href="#Note-79"><span class="linenos"> 79</span></a>            <span class="k">return</span> <span class="n">Interval</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">-</span> <span class="n">other</span><span class="o">.</span><span class="n">semitone</span><span class="p">)</span>
+</span><span id="Note-80"><a href="#Note-80"><span class="linenos"> 80</span></a>        <span class="k">else</span><span class="p">:</span>
+</span><span id="Note-81"><a href="#Note-81"><span class="linenos"> 81</span></a>            <span class="k">return</span> <span class="bp">NotImplemented</span>
+</span><span id="Note-82"><a href="#Note-82"><span class="linenos"> 82</span></a>
+</span><span id="Note-83"><a href="#Note-83"><span class="linenos"> 83</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="Note-84"><a href="#Note-84"><span class="linenos"> 84</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="Note-85"><a href="#Note-85"><span class="linenos"> 85</span></a><span class="sd">        Return name of note like Ab4 or G6</span>
+</span><span id="Note-86"><a href="#Note-86"><span class="linenos"> 86</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="Note-87"><a href="#Note-87"><span class="linenos"> 87</span></a>
+</span><span id="Note-88"><a href="#Note-88"><span class="linenos"> 88</span></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">letter</span><span class="si">}{</span><span class="n">ACCIDENTAL_VALUE_TO_NAME</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">accidental</span><span class="p">]</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">octave</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="Note-89"><a href="#Note-89"><span class="linenos"> 89</span></a>
+</span><span id="Note-90"><a href="#Note-90"><span class="linenos"> 90</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">transposed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">interval</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Ratio</span><span class="p">,</span> <span class="n">Interval</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="s2">&quot;Note&quot;</span><span class="p">,</span> <span class="s2">&quot;Tone&quot;</span><span class="p">]:</span>
+</span><span id="Note-91"><a href="#Note-91"><span class="linenos"> 91</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="Note-92"><a href="#Note-92"><span class="linenos"> 92</span></a><span class="sd">        Transpose a note by an `Interval` or `Ratio`. Passing in an `Interval` will return a `Note` while passing in a `Ratio` will return a `Tone`</span>
+</span><span id="Note-93"><a href="#Note-93"><span class="linenos"> 93</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="Note-94"><a href="#Note-94"><span class="linenos"> 94</span></a>
+</span><span id="Note-95"><a href="#Note-95"><span class="linenos"> 95</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">interval</span><span class="p">,</span> <span class="p">(</span><span class="n">Ratio</span><span class="p">,</span> <span class="n">Interval</span><span class="p">)):</span>
+</span><span id="Note-96"><a href="#Note-96"><span class="linenos"> 96</span></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">()</span>
+</span><span id="Note-97"><a href="#Note-97"><span class="linenos"> 97</span></a>
+</span><span id="Note-98"><a href="#Note-98"><span class="linenos"> 98</span></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">interval</span><span class="p">,</span> <span class="n">Interval</span><span class="p">):</span>
+</span><span id="Note-99"><a href="#Note-99"><span class="linenos"> 99</span></a>            <span class="k">return</span> <span class="n">Note</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">+</span> <span class="n">interval</span><span class="o">.</span><span class="n">semitones</span><span class="p">)</span>
+</span><span id="Note-100"><a href="#Note-100"><span class="linenos">100</span></a>        <span class="k">else</span><span class="p">:</span>
+</span><span id="Note-101"><a href="#Note-101"><span class="linenos">101</span></a>            <span class="k">return</span> <span class="n">Tone</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frequency</span><span class="p">)</span> <span class="o">+</span> <span class="n">interval</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Describes a musical note as a Tone quantized to 12TET with A4 = 440Hz, where note 0 = C0</p>
+</div>
+
+
+                            <div id="Note.__init__" class="classattr">
+                                        <input id="Note.__init__-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="name">Note</span><span class="signature pdoc-code condensed">(<span class="param"><span class="n">note</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span></span>)</span>
+
+                <label class="view-source-button" for="Note.__init__-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#Note.__init__"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Note.__init__-27"><a href="#Note.__init__-27"><span class="linenos">27</span></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">note</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]):</span>
+</span><span id="Note.__init__-28"><a href="#Note.__init__-28"><span class="linenos">28</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="Note.__init__-29"><a href="#Note.__init__-29"><span class="linenos">29</span></a><span class="sd">        `note` can either be a note name like &quot;Ab4&quot; &quot;G2&quot; &quot;C#6&quot; &quot;F&quot; or an integer number of semitones from C0</span>
+</span><span id="Note.__init__-30"><a href="#Note.__init__-30"><span class="linenos">30</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="Note.__init__-31"><a href="#Note.__init__-31"><span class="linenos">31</span></a>
+</span><span id="Note.__init__-32"><a href="#Note.__init__-32"><span class="linenos">32</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">note</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">)):</span>
+</span><span id="Note.__init__-33"><a href="#Note.__init__-33"><span class="linenos">33</span></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">()</span>
+</span><span id="Note.__init__-34"><a href="#Note.__init__-34"><span class="linenos">34</span></a>
+</span><span id="Note.__init__-35"><a href="#Note.__init__-35"><span class="linenos">35</span></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">note</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+</span><span id="Note.__init__-36"><a href="#Note.__init__-36"><span class="linenos">36</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">=</span> <span class="n">note</span>
+</span><span id="Note.__init__-37"><a href="#Note.__init__-37"><span class="linenos">37</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">octave</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">//</span> <span class="n">SEMITONES_PER_OCTAVE</span>
+</span><span id="Note.__init__-38"><a href="#Note.__init__-38"><span class="linenos">38</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">letter</span> <span class="o">=</span> <span class="n">NOTE_SEMITONE_TO_COMPONENTS</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">%</span> <span class="n">SEMITONES_PER_OCTAVE</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</span><span id="Note.__init__-39"><a href="#Note.__init__-39"><span class="linenos">39</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">accidental</span> <span class="o">=</span> <span class="n">NOTE_SEMITONE_TO_COMPONENTS</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">%</span> <span class="n">SEMITONES_PER_OCTAVE</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+</span><span id="Note.__init__-40"><a href="#Note.__init__-40"><span class="linenos">40</span></a>
+</span><span id="Note.__init__-41"><a href="#Note.__init__-41"><span class="linenos">41</span></a>        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">note</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+</span><span id="Note.__init__-42"><a href="#Note.__init__-42"><span class="linenos">42</span></a>            <span class="n">name</span> <span class="o">=</span> <span class="n">note</span>
+</span><span id="Note.__init__-43"><a href="#Note.__init__-43"><span class="linenos">43</span></a>            <span class="n">m</span> <span class="o">=</span> <span class="n">NOTE_NAME_RE</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</span><span id="Note.__init__-44"><a href="#Note.__init__-44"><span class="linenos">44</span></a>
+</span><span id="Note.__init__-45"><a href="#Note.__init__-45"><span class="linenos">45</span></a>            <span class="k">if</span> <span class="n">m</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="Note.__init__-46"><a href="#Note.__init__-46"><span class="linenos">46</span></a>                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid note name &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;!&quot;</span><span class="p">)</span>
+</span><span id="Note.__init__-47"><a href="#Note.__init__-47"><span class="linenos">47</span></a>
+</span><span id="Note.__init__-48"><a href="#Note.__init__-48"><span class="linenos">48</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">letter</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="Note.__init__-49"><a href="#Note.__init__-49"><span class="linenos">49</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">accidental</span> <span class="o">=</span> <span class="n">ACCIDENTAL_NAME_TO_VALUE</span><span class="p">[</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
+</span><span id="Note.__init__-50"><a href="#Note.__init__-50"><span class="linenos">50</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">octave</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="ow">or</span> <span class="n">NOTE_DEFAULT_OCTAVE</span><span class="p">)</span>
+</span><span id="Note.__init__-51"><a href="#Note.__init__-51"><span class="linenos">51</span></a>
+</span><span id="Note.__init__-52"><a href="#Note.__init__-52"><span class="linenos">52</span></a>            <span class="n">c_based_note_semitone</span> <span class="o">=</span> <span class="n">NOTE_NAME_TO_SEMITONE</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">letter</span><span class="p">]</span>
+</span><span id="Note.__init__-53"><a href="#Note.__init__-53"><span class="linenos">53</span></a>
+</span><span id="Note.__init__-54"><a href="#Note.__init__-54"><span class="linenos">54</span></a>            <span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">=</span> <span class="n">c_based_note_semitone</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">accidental</span> <span class="o">+</span> <span class="n">SEMITONES_PER_OCTAVE</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">octave</span>
+</span><span id="Note.__init__-55"><a href="#Note.__init__-55"><span class="linenos">55</span></a>
+</span><span id="Note.__init__-56"><a href="#Note.__init__-56"><span class="linenos">56</span></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+</span><span id="Note.__init__-57"><a href="#Note.__init__-57"><span class="linenos">57</span></a>            <span class="p">(</span>
+</span><span id="Note.__init__-58"><a href="#Note.__init__-58"><span class="linenos">58</span></a>                <span class="n">Tone</span><span class="p">(</span><span class="n">C0_FREQUENCY</span><span class="p">)</span>
+</span><span id="Note.__init__-59"><a href="#Note.__init__-59"><span class="linenos">59</span></a>                <span class="o">+</span> <span class="n">Interval</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">%</span> <span class="n">SEMITONES_PER_OCTAVE</span><span class="p">)</span>
+</span><span id="Note.__init__-60"><a href="#Note.__init__-60"><span class="linenos">60</span></a>                <span class="o">+</span> <span class="p">(</span><span class="n">OCTAVE</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">//</span> <span class="n">SEMITONES_PER_OCTAVE</span><span class="p">))</span>
+</span><span id="Note.__init__-61"><a href="#Note.__init__-61"><span class="linenos">61</span></a>            <span class="p">)</span><span class="o">.</span><span class="n">frequency</span>
+</span><span id="Note.__init__-62"><a href="#Note.__init__-62"><span class="linenos">62</span></a>        <span class="p">)</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p><code>note</code> can either be a note name like "Ab4" "G2" "C#6" "F" or an integer number of semitones from C0</p>
+</div>
+
+
+                            </div>
+                            <div id="Note.letter" class="classattr">
+                                <div class="attr variable">
+            <span class="name">letter</span><span class="annotation">: str</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Note.letter"></a>
+    
+            <div class="docstring"><p>The alphabet letter of the note, A-G</p>
+</div>
+
+
+                            </div>
+                            <div id="Note.octave" class="classattr">
+                                <div class="attr variable">
+            <span class="name">octave</span><span class="annotation">: int</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Note.octave"></a>
+    
+            <div class="docstring"><p>The octave of the note, octaves start at C and end at B</p>
+</div>
+
+
+                            </div>
+                            <div id="Note.accidental" class="classattr">
+                                <div class="attr variable">
+            <span class="name">accidental</span><span class="annotation">: int</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Note.accidental"></a>
+    
+            <div class="docstring"><p>The accidental semitone value, 0 for natural, 1 for sharp, -1 for flat, 2 for double sharp, -2 for double flat</p>
+</div>
+
+
+                            </div>
+                            <div id="Note.semitone" class="classattr">
+                                <div class="attr variable">
+            <span class="name">semitone</span><span class="annotation">: int</span>
+
+        
+    </div>
+    <a class="headerlink" href="#Note.semitone"></a>
+    
+            <div class="docstring"><p>The absolute semitone of the note starting at C0=0</p>
+</div>
+
+
+                            </div>
+                            <div id="Note.name" class="classattr">
+                                        <input id="Note.name-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">name</span><span class="signature pdoc-code condensed">(<span class="param"><span class="bp">self</span></span><span class="return-annotation">) -> <span class="nb">str</span>:</span></span>
+
+                <label class="view-source-button" for="Note.name-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#Note.name"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Note.name-83"><a href="#Note.name-83"><span class="linenos">83</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="Note.name-84"><a href="#Note.name-84"><span class="linenos">84</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="Note.name-85"><a href="#Note.name-85"><span class="linenos">85</span></a><span class="sd">        Return name of note like Ab4 or G6</span>
+</span><span id="Note.name-86"><a href="#Note.name-86"><span class="linenos">86</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="Note.name-87"><a href="#Note.name-87"><span class="linenos">87</span></a>
+</span><span id="Note.name-88"><a href="#Note.name-88"><span class="linenos">88</span></a>        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">letter</span><span class="si">}{</span><span class="n">ACCIDENTAL_VALUE_TO_NAME</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">accidental</span><span class="p">]</span><span class="si">}{</span><span class="bp">self</span><span class="o">.</span><span class="n">octave</span><span class="si">}</span><span class="s2">&quot;</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Return name of note like Ab4 or G6</p>
+</div>
+
+
+                            </div>
+                            <div id="Note.transposed" class="classattr">
+                                        <input id="Note.transposed-view-source" class="view-source-toggle-state" type="checkbox" aria-hidden="true" tabindex="-1">
+<div class="attr function">
+            
+        <span class="def">def</span>
+        <span class="name">transposed</span><span class="signature pdoc-code multiline">(<span class="param">	<span class="bp">self</span>,</span><span class="param">	<span class="n">interval</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n"><a href="#Ratio">Ratio</a></span><span class="p">,</span> <span class="n"><a href="#Interval">Interval</a></span><span class="p">]</span></span><span class="return-annotation">) -> <span class="n">Union</span><span class="p">[</span><span class="n"><a href="#Note">Note</a></span><span class="p">,</span> <span class="n"><a href="#Tone">Tone</a></span><span class="p">]</span>:</span></span>
+
+                <label class="view-source-button" for="Note.transposed-view-source"><span>View Source</span></label>
+
+    </div>
+    <a class="headerlink" href="#Note.transposed"></a>
+            <div class="pdoc-code codehilite"><pre><span></span><span id="Note.transposed-90"><a href="#Note.transposed-90"><span class="linenos"> 90</span></a>    <span class="k">def</span><span class="w"> </span><span class="nf">transposed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">interval</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Ratio</span><span class="p">,</span> <span class="n">Interval</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="s2">&quot;Note&quot;</span><span class="p">,</span> <span class="s2">&quot;Tone&quot;</span><span class="p">]:</span>
+</span><span id="Note.transposed-91"><a href="#Note.transposed-91"><span class="linenos"> 91</span></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+</span><span id="Note.transposed-92"><a href="#Note.transposed-92"><span class="linenos"> 92</span></a><span class="sd">        Transpose a note by an `Interval` or `Ratio`. Passing in an `Interval` will return a `Note` while passing in a `Ratio` will return a `Tone`</span>
+</span><span id="Note.transposed-93"><a href="#Note.transposed-93"><span class="linenos"> 93</span></a><span class="sd">        &quot;&quot;&quot;</span>
+</span><span id="Note.transposed-94"><a href="#Note.transposed-94"><span class="linenos"> 94</span></a>
+</span><span id="Note.transposed-95"><a href="#Note.transposed-95"><span class="linenos"> 95</span></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">interval</span><span class="p">,</span> <span class="p">(</span><span class="n">Ratio</span><span class="p">,</span> <span class="n">Interval</span><span class="p">)):</span>
+</span><span id="Note.transposed-96"><a href="#Note.transposed-96"><span class="linenos"> 96</span></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">()</span>
+</span><span id="Note.transposed-97"><a href="#Note.transposed-97"><span class="linenos"> 97</span></a>
+</span><span id="Note.transposed-98"><a href="#Note.transposed-98"><span class="linenos"> 98</span></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">interval</span><span class="p">,</span> <span class="n">Interval</span><span class="p">):</span>
+</span><span id="Note.transposed-99"><a href="#Note.transposed-99"><span class="linenos"> 99</span></a>            <span class="k">return</span> <span class="n">Note</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">semitone</span> <span class="o">+</span> <span class="n">interval</span><span class="o">.</span><span class="n">semitones</span><span class="p">)</span>
+</span><span id="Note.transposed-100"><a href="#Note.transposed-100"><span class="linenos">100</span></a>        <span class="k">else</span><span class="p">:</span>
+</span><span id="Note.transposed-101"><a href="#Note.transposed-101"><span class="linenos">101</span></a>            <span class="k">return</span> <span class="n">Tone</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frequency</span><span class="p">)</span> <span class="o">+</span> <span class="n">interval</span>
+</span></pre></div>
+
+
+            <div class="docstring"><p>Transpose a note by an <code><a href="#Interval">Interval</a></code> or <code><a href="#Ratio">Ratio</a></code>. Passing in an <code><a href="#Interval">Interval</a></code> will return a <code><a href="#Note">Note</a></code> while passing in a <code><a href="#Ratio">Ratio</a></code> will return a <code><a href="#Tone">Tone</a></code></p>
 </div>
 
 
