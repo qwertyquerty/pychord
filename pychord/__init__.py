@@ -5,10 +5,12 @@ from pychord.ratio import *
 from pychord.tone import *
 
 __all__ = [
-    "Interval",
-    "Note",
-    "Ratio",
+    # Classes
     "Tone",
+    "Ratio",
+    "Note",
+    "Interval",
+    # Constants
     "OCTAVE_RATIO",
     "SEMITONE_RATIO",
     "C0_FREQUENCY",
