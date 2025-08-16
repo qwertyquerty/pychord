@@ -1,4 +1,5 @@
 from pychord.const import *
+from pychord.chord import *
 from pychord.interval import *
 from pychord.note import *
 from pychord.ratio import *
@@ -10,6 +11,7 @@ __all__ = [
     "Ratio",
     "Interval",
     "Note",
+    "Chord",
     # Constants
     "OCTAVE_RATIO",
     "SEMITONE_RATIO",
