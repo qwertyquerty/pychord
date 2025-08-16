@@ -22,3 +22,5 @@ jobs:
 
     - name: Generate documentation
       run: pdoc pychord --output-dir docs
+
+    - uses: stefanzweifel/git-auto-commit-action@v4
