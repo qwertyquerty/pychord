@@ -1,5 +1,6 @@
 from pychord.const import *
 from pychord.interval import *
+from pychord.mode import *
 from pychord.note import *
 from pychord.ratio import *
 from pychord.tone import *
@@ -10,6 +11,8 @@ __all__ = [
     "Ratio",
     "Interval",
     "Note",
+    "Mode",
+    "Scale",
     # Constants
     "OCTAVE_RATIO",
     "SEMITONE_RATIO",
@@ -30,4 +33,11 @@ __all__ = [
     "MINOR_SEVENTH",
     "MAJOR_SEVENTH",
     "OCTAVE",
+    "IONIAN",
+    "PHRYGIAN",
+    "DORIAN",
+    "LYDIAN",
+    "MIXOLYDIAN",
+    "AEOLIAN",
+    "LOCRIAN",
 ]
